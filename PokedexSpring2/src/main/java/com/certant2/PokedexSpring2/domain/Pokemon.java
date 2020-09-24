@@ -22,7 +22,7 @@ import lombok.Data;
 @Entity
 @Table(name="pokemon")
 public class Pokemon implements Serializable{
-	
+	//prueba
 	/**
 	 * 
 	 */
