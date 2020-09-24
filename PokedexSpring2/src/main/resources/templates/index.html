@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+	<head>
+		<title>Inicio</title>
+		<meta charset="UTF-8">	
+	</head>
+	<body>
+		<h1>Inicio</h1>
+		<a th:href="@{/agregar}">Crear Pokemon</a>
+		<div th.if="${pokemones != null and !pokemones.empty}">
+			<table border="1">
+				<tr>
+					<th>Nombre</th>
+					<th>Nivel</th>
+					<th>Editar</th>
+					<th>Eliminar</th>
+				</tr>
+				<tr th:each="pokemon : ${pokemones}">
+					<td th:text="${pokemon.nombre}">Mostrar Nombre</td>
+					<td th:text="${pokemon.nivel}">Mostrar Nivel</td>
+					<td><a th:href="@{/editar/} + ${pokemon.getidpokemon()}" th:text="Editar"/></td>
+					<td><a th:href="@{/eliminar/} + ${pokemon.getidpokemon()}" th:text="Eliminar"/></td>
+				</tr>	
+			</table>
+		</div>
+		<div th:if="${pokemones == null or pokemones.empty}">
+			La lista de pokemones esta vacia
+		</div>
+		<br/>
+	</body>
+</html>
