@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+	<head>
+		<title>Evoluciones del pokemon correspondiente<</title>
+		<meta charset="UTF-8">	
+	</head>
+	<body>
+		<h1>Evoluciones del pokemon correspondiente</h1>
+        <a th:href="@{/}">Regresar</a>
+        <br/>
+		<div th.if="${evoluciones != null and !evoluciones.empty}">
+			<table border="1">
+				<tr>
+					<th>Nombre evolucion</th>
+				</tr>
+				<tr th:each="evolucion : ${evoluciones}">
+					<td th:text="${evolucion}">Mostrar Nombre</td>
+				</tr>	
+			</table>
+		</div>
+		<div th:if="${evoluciones == null or evoluciones.empty}">
+			El pokemon no tiene evoluciones
+		</div>
+	</body>
+</html>

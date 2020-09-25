@@ -22,7 +22,7 @@ import lombok.Data;
 @Entity
 @Table(name="pokemon")
 public class Pokemon implements Serializable{
-	//prueba
+
 	/**
 	 * 
 	 */
@@ -87,7 +87,7 @@ public class Pokemon implements Serializable{
 	}
 	
 	public String getData() {
-		return " - Pokemon Name: " + this.nombre + "; Type/s: " + this.getTypeData() + "; Level: " + this.nivel;
+		return " - Id Pokemon: " + this.idpokemon.toString() +"; Pokemon Name: " + this.nombre + "; Type/s: " + this.getTypeData() + "; Level: " + this.nivel;
 	}
 	
 	public String getTypeData() {

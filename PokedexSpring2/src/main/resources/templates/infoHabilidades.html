@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+	<head>
+		<title>Habilidades del pokemon correspondiente</title>
+		<meta charset="UTF-8">	
+	</head>
+	<body>
+		<h1>Habilidades del pokemon correspondiente</h1>
+        <a th:href="@{/}">Regresar</a>
+        <br/>
+		<div th.if="${habilidades != null and !habilidades.empty}">
+			<table border="1">
+				<tr>
+					<th>Nombre habilidad</th>
+				</tr>
+				<tr th:each="habilidad : ${habilidades}">
+					<td th:text="${habilidad}">Mostrar Habilidad</td>
+				</tr>	
+			</table>
+		</div>
+		<div th:if="${habilidades == null or habilidades.empty}">
+			El pokemon no tiene habilidades
+		</div>
+	</body>
+</html>

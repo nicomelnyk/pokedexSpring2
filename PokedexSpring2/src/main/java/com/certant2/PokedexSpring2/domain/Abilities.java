@@ -23,7 +23,15 @@ public class Abilities implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="idabilities")
-	private Long id;
+	private Long idabilities;
+	
+	public Long getidabilities(){
+		return idabilities;
+	}
+	
+	public Long getId() {
+		return serialVersionUID;
+	}
 	
 	private String nombre;
 

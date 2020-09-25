@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+	<head>
+		<title>Tipos del pokemon correspondiente<</title>
+		<meta charset="UTF-8">	
+	</head>
+	<body>
+		<h1>Tipos del pokemon correspondiente</h1>
+        <a th:href="@{/}">Regresar</a>
+        <br/>
+		<div th.if="${tipos != null and !tipos.empty}">
+			<table border="1">
+				<tr>
+					<th>Nombre del Tipo</th>
+					<th>Remover</th>
+				</tr>
+				<tr th:each="tipo : ${tipos}">
+					<td th:text="${tipo}">Mostrar Tipo</td>
+					<td><a th:href="@{/removerTipo/} + ${tipo.getidpokemontype()}" th:text="Remover"/></td>
+				</tr>	
+			</table>
+		</div>
+		<div th:if="${tipos == null or tipos.empty}">
+			El pokemon no tiene ningun tipo
+		</div>
+		<h1>Tipos disponibles</h1>
+		<table border="1">
+				<tr>
+					<th>Nombre del Tipo</th>
+					<th>Agregar</th>
+				</tr>
+				<tr th:each="tipodisponible : ${tiposdisponibles}">
+					<td th:text="${tipodisponible.nombre}">Mostrar Tipo</td>
+					<td><a th:href="@{/infoTiposPokemon?} + ${pokemon.getidpokemon()} + ${& tipodisponible.getidpokemontype()}" th:text="Agregar"/></td>
+				</tr>	
+			</table>
+	</body>
+</html>

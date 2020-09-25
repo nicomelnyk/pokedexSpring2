@@ -30,12 +30,24 @@ public class Evolutions implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="idevolutions")
-	private Long id;
+	private Long idevolutions;
+	
+	public void idevolutions(Long nuevoid) {
+		this.idevolutions = nuevoid;
+	}
+	
+	public Long getidevolutions(){
+		return idevolutions;
+	}
+	
+	public Long getId() {
+		return serialVersionUID;
+	}
 	
 	private String nombre;
 
 	@ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-	private Set<EvolutionType> evolutionType = new HashSet<EvolutionType>();
+	private Set<EvolutionType> evolutiontype = new HashSet<EvolutionType>();
 	
 	private Integer nivel;
 	
@@ -44,7 +56,7 @@ public class Evolutions implements Serializable{
 
 	public Evolutions(String name, Set<EvolutionType> evolutionType, Integer level) {
 		this.nombre = name;
-		this.evolutionType = evolutionType;
+		this.evolutiontype = evolutionType;
 		this.nivel = level;
 	}
 	
@@ -54,7 +66,7 @@ public class Evolutions implements Serializable{
 	
 	public String getTypeData() {
 		Collection<String> lista = new ArrayList<String>();
-		evolutionType.forEach(type->lista.add(type.getNombre()));
+		evolutiontype.forEach(type->lista.add(type.getNombre()));
 		String retorno = lista.toString();
 		return retorno;
 	}
@@ -64,7 +76,7 @@ public class Evolutions implements Serializable{
 	}
 	
 	public Set<EvolutionType> getEvolutionType() {
-		return evolutionType;
+		return evolutiontype;
 	}
 	
 	public Integer getNivel() {

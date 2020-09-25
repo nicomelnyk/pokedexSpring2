@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+	<head>
+		<title>Tipos de la evolucion correspondiente<</title>
+		<meta charset="UTF-8">	
+	</head>
+	<body>
+		<h1>Tipos de la evolucion correspondiente</h1>
+        <a th:href="@{/visualizarEvoluciones}">Regresar</a>
+        <br/>
+		<div th.if="${tipos != null and !tipos.empty}">
+			<table border="1">
+				<tr>
+					<th>Nombre del Tipo</th>
+				</tr>
+				<tr th:each="tipo : ${tipos}">
+					<td th:text="${tipo}">Mostrar Tipo</td>
+				</tr>	
+			</table>
+		</div>
+		<div th:if="${tipos == null or tipos.empty}">
+			La evolucion no tiene ningun tipo
+		</div>
+	</body>
+</html>

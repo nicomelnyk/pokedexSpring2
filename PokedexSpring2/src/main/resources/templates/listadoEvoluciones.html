@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+	<head>
+		<title>Evoluciones disponibles</title>
+		<meta charset="UTF-8">	
+	</head>
+	<body>
+		<h1>Inicio</h1>
+		<a th:href="@{/}">Regresar</a>
+		<div th.if="${evoluciones != null and !evoluciones.empty}">
+			<table border="1">
+				<tr>
+					<th>Nombre Evolucion</th>
+					<th>Nivel en el cual el Pokemon puede evolucionar a la misma</th>
+					<th>Tipo/s</th>
+				</tr>
+				<tr th:each="evolucion : ${evoluciones}">
+					<td th:text="${evolucion.nombre}">Mostrar Nombre</td>
+					<td th:text="${evolucion.nivel}">Mostrar Nivel</td>
+					<td><a th:href="@{/visualizarEvoluciones/mostrarTipos/} + ${evolucion.getidevolutions()}" th:text="Tipos"/></td>
+				</tr>	
+			</table>
+		</div>
+		<div th:if="${evoluciones == null or evoluciones.empty}">
+			La lista de evoluciones esta vacia
+		</div>
+	</body>
+</html>

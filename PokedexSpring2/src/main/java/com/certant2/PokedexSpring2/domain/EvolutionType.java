@@ -24,10 +24,14 @@ public class EvolutionType implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="idevolutiontype")
-	private Long id;
+	private Long idevolutiontype;
+	
+	public Long getidevolutiontype() {
+		return idevolutiontype;
+	}
 	
 	public Long getId() {
-		return id;
+		return serialVersionUID;
 	}
 	
 	private String nombre;

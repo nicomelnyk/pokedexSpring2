@@ -12,20 +12,25 @@
 				<tr>
 					<th>Nombre</th>
 					<th>Nivel</th>
+					<th>Tipo/s</th>
+					<th>Habilidades</th>
+					<th>Evoluciones</th>
 					<th>Editar</th>
-					<th>Eliminar</th>
 				</tr>
 				<tr th:each="pokemon : ${pokemones}">
 					<td th:text="${pokemon.nombre}">Mostrar Nombre</td>
 					<td th:text="${pokemon.nivel}">Mostrar Nivel</td>
+					<td><a th:href="@{/infoTiposPokemon/} + ${pokemon.getidpokemon()}" th:text="Tipos"/></td>
+					<td><a th:href="@{/infoEvolucionesPokemon/} + ${pokemon.getidpokemon()}" th:text="Evoluciones"/></td>
+					<td><a th:href="@{/infoHabilidades/} + ${pokemon.getidpokemon()}" th:text="Habilidades"/></td>
 					<td><a th:href="@{/editar/} + ${pokemon.getidpokemon()}" th:text="Editar"/></td>
-					<td><a th:href="@{/eliminar/} + ${pokemon.getidpokemon()}" th:text="Eliminar"/></td>
 				</tr>	
 			</table>
 		</div>
 		<div th:if="${pokemones == null or pokemones.empty}">
 			La lista de pokemones esta vacia
 		</div>
+		<a th:href="@{/visualizarEvoluciones}">Visualizar evoluciones disponibles</a>
 		<br/>
 	</body>
 </html>

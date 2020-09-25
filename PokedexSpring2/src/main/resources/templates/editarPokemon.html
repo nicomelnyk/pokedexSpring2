@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Crear Pokemon</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <h1>Datos del Pokemon</h1>
+        <a th:href="@{/}">Regresar</a>
+        <br/>
+        <form th:action="@{/actualizar/validar}" method="post" th:object="${pokemon}">
+       		<input type="hidden" name"idpokemon" th:field="*{idpokemon}"/>
+            <br/>
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" th:field="*{nombre}"/>
+            <br/>
+            <label for="nivel">Nivel:</label>
+            <input type="text" name="nivel" th:field="*{nivel}"/>
+            <br/>
+            <input type="submit" name="guardar" value="Guardar"/>
+        </form>
+    </body>
+</html>

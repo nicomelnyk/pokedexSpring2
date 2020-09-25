@@ -23,10 +23,14 @@ public class PokemonType implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="idpokemontype")
-	private Long id;
+	private Long idpokemontype;
+	
+	public Long getidpokemontype(){
+		return idpokemontype;
+	}
 	
 	public Long getId() {
-		return id;
+		return serialVersionUID;
 	}
 	
 	private String nombre;
